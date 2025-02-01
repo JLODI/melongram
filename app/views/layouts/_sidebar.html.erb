@@ -22,15 +22,15 @@
                 <i class="fs-4 bi bi-plus-square"></i> <span class="ms-1 d-none d-sm-inline">Post</span> </a>
         </li>
         <li>
-            <a href="#" class="nav-link align-middle px-0">
+            <span href="#" class="nav-link align-middle px-0">
                 <% if current_user.image.attached? %>
                     <%= image_tag(current_user.image, class: "round-img-nav") %>
                 <% else %>
                 <% end %>
                 <span class="ms-1 d-none d-sm-inline">
-                    Profile
+                    <%= link_to "Profile", user_path(current_user), style: "text-decoration: none;" %>
                 </span>
-            </a>
+            </span>
         </li>
     </ul>
     <hr>
