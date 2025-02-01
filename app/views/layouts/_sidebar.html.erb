@@ -6,7 +6,10 @@
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
         <li class="nav-item">
             <div class="nav-link align-middle px-0">
-                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline"><%= link_to "Home", pages_home_path, style: "text-decoration: none;"%></span>
+                <i class="fs-4 bi-house"></i> 
+                <span class="ms-1 d-none d-sm-inline">
+                    <%= link_to "Home", root_path, style: "text-decoration: none;"%>
+                </span>
             </div>
         </li>
         <li>
@@ -18,8 +21,12 @@
                 <i class="fs-4 bi bi-suit-heart"></i> <span class="ms-1 d-none d-sm-inline">Notifications</span></a>
         </li>
         <li>
-            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-plus-square"></i> <span class="ms-1 d-none d-sm-inline">Post</span> </a>
+            <span class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-plus-square"></i> 
+                <span class="ms-1 d-none d-sm-inline">
+                    <%= link_to "Post", new_post_path, style: "text-decoration: none;"%>
+                </span> 
+            </span>
         </li>
         <li>
             <span href="#" class="nav-link align-middle px-0">
