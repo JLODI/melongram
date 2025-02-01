@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if @user.image.any? %>
+  <% if @user.image.attached? %>
     <div class="col-md-4 text-center">
           <%= image_tag @user.image, class: 'round-img' %>
     </div>

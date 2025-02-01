@@ -1,8 +1,12 @@
-<div class="row justify-content-md-center profile-wrapper">
+<div class="row justify-content-md-center profile-wrapper">  
     <div class="col-md-4 text-center">
-        <%= image_tag @user.image, class: 'round-img' %>
-        <%= @user.pronouns %>
+        <% if @user.image.attached? %>
+            <%= image_tag @user.image, class: 'round-img' %>
+                <% else %>
+            <% end %>
+            <%= @user.pronouns %>
     </div>
+
     <div class="col-md-8">
         <div class="row">
             <p class="username">
