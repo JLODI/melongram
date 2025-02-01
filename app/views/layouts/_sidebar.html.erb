@@ -23,7 +23,14 @@
         </li>
         <li>
             <a href="#" class="nav-link align-middle px-0">
-                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle"><span class="ms-1 d-none d-sm-inline">Profile</span> </a>
+                <% if current_user.image.attached? %>
+                    <%= image_tag(current_user.image, class: "round-img-nav") %>
+                <% else %>
+                <% end %>
+                <span class="ms-1 d-none d-sm-inline">
+                    Profile
+                </span>
+            </a>
         </li>
     </ul>
     <hr>
