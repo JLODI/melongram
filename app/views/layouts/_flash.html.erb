@@ -1,5 +1,9 @@
-<div class="alert alert-success text-center" role="alert">
-  <%# <h4 class="alert-heading">Flash Message</h4> %>
-  <p class="notice mb-0"><%= notice %></p>
-  <p class="notice mb-0"><%= alert %></p>
-</div>
+<% if flash.any?%>
+  <div class="alert alert-success text-center" role="alert">
+
+  <%# flash notice %>
+    <% flash.each do |type, message| %>
+      <p class="notice mb-0 <%= type %>"><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
