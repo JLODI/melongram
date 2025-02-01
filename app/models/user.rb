@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 4, maximum: 30 }
 
   has_one_attached :image
+  has_many :posts, dependent: :destroy
 end
