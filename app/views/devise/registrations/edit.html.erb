@@ -10,7 +10,7 @@
   
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, required: true, minlength: 4, maxlength: 30 %>
   </div>
 
   <div class="field">
@@ -34,7 +34,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", required: true %>
   </div>
 
   <div class="actions">
