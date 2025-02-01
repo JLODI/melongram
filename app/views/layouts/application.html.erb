@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+
     <meta charset="UTF-8">
     <title><%= content_for(:title) || "Melongram" %></title>
 
@@ -26,25 +28,32 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
 
-  <div class="container-fluid">
-    <div class="row flex-nowrap">
-      <%# navigation bar %>
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-        <%= render 'layouts/sidebar' %>  
-      </div>
-      <div class="col py-3">
-        <%= render 'layouts/flash' %>  
-        <%= yield %>
-        <%= render 'layouts/footer' %>
+  <% if user_signed_in? %>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <%# navigation bar %>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+          <%= render 'layouts/sidebar' %>  
+        </div>
+        <div class="col py-3">
+          <%= render 'layouts/flash' %>  
+          <%= yield %>
+          <%# footer links %>
+          <%= render 'layouts/footer' %>
+        </div>
       </div>
     </div>
-  </div>
-
-  </body>
-  <%# footer links %>
+  <% else %>
+    <%= render 'layouts/flash' %>  
+      <%= yield %>
+      <%# footer links %>
+      <%= render 'layouts/footer' %>
+  <% end %>
   
+  </body>
 </html>
