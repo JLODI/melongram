@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :users, only: [:show]
+  resources :posts, only: [:index, :show, :create, :edit]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
