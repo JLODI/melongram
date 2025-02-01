@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/new"
+  get "posts/create"
+  get "posts/show"
+  get "posts/delete"
   devise_for :users, controllers: {
         registrations: 'users/registrations',
         sessions: 'users/sessions'
