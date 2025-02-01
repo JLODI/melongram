@@ -8,4 +8,8 @@
 
 .round-img {
     border-radius: 50%;
+    display: inline-block;
+    width: 152px;
+    height: 152px; 
+    object-fit: cover;
 }
