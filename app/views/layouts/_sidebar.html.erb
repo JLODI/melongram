@@ -24,12 +24,12 @@
             <span class="nav-link px-0 align-middle">
                 <i class="fs-4 bi bi-plus-square"></i> 
                 <span class="ms-1 d-none d-sm-inline">
-                    <%= link_to "Post", new_post_path, style: "text-decoration: none;"%>
+                    <%= link_to "Post", new_post_path, style: "text-decoration: none", data: { bs_toggle: 'modal', bs_target: '#newpostModal' } %>
                 </span> 
             </span>
         </li>
         <li>
-            <span href="#" class="nav-link align-middle px-0">
+            <span class="nav-link align-middle px-0">
                 <% if current_user.image.attached? %>
                     <%= image_tag(current_user.image, class: "round-img-nav") %>
                 <% else %>
