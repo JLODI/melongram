@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       else
       
           flash[:alert] = @post.errors.full_messages[0]
-          redirect_to posts_path
+          redirect_to new_post_path
       end
   end
 
