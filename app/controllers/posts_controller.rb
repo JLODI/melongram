@@ -13,11 +13,11 @@ class PostsController < ApplicationController
       @post = current_user.posts.build(post_params)
       if @post.save
           flash[:notice] = "Your post has been created."
-          redirect_to posts_path
+          redirect_to root_path
       else
       
           flash[:alert] = @post.errors.full_messages[0]
-          redirect_to new_post_path
+          redirect_to root_path
       end
   end
 
