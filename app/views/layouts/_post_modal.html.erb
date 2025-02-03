@@ -1,9 +1,9 @@
-    <div class="modal fade modal-size" id="newpostModal" tabindex="-1" aria-labelledby="newpostmodalLabel" aria-hidden="true" data-controller="new-post-form">
+    <div class="modal fade modal-size animation" id="newpostModal" tabindex="-1" aria-labelledby="newpostmodalLabel" aria-hidden="true" data-controller="new-post-form">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content" data-new-post-form-target="modalSize">
           <div class="modal-header" style="display: flex; justify-content: center; align-items: center; width:100%">
                 <h3 class="modal-title fs-6 fw-bold" style="margin:0; text-align: center; flex-grow: 1;" id="newpostmodalLabel">Create New Post</h3>
-                <a href="#" data-new-post-form-target="nextButton" class="nav-link px-0" style="text-align: right; visibility: hidden;">Next</a>
+                <button data-new-post-form-target="nextButton" data-action="click->new-post-form#revealForm" class="btn text-decoration-none nav-link px-0" style="text-align: right; display: none;">Next</button>
           </div>
           <div class="pt-4 modal-body d-flex justify-content-center align-items-center">
             <div style="margin-left: auto; margin-right: auto; text-align: center;">
@@ -12,16 +12,19 @@
               <%= form_with model: Post.new, html: { multipart: true } do |f| %>
                 <div class="mb-6 container">
                     <div class="row">
-                        <div class="col-12" data-new-post-form-target="preview" style="margin-left: auto; margin-right: auto; text-align: center; gap: 5px; flex-wrap: wrap;">
-                            <%= image_tag "icons/image-gallery.png", width: "70", class: "mb-2" %>
-                            <p class="fs-5">Upload photos here</p>
+                        <div class="col" style="margin-left: auto; margin-right: auto; text-align: center; gap: 5px; flex-wrap: wrap;">
+                            <div data-new-post-form-target="preview">
+                                <%= image_tag "icons/image-gallery.png", width: "70", class: "mb-2" %>
+                                <p class="fs-5">Upload photos here</p>
+                            </div>
+                            <%= link_to "Select from computer", "", data: { action: "click->new-post-form#selectFile" }, id: "post-select-file-button", class: "btn btn-primary", style: "margin-top: 20px"%>
+                            <%= f.file_field :images, multiple: true, data: { "new-post-form-target": "photoFile", action: "change->new-post-form#preview" }, class: "d-none" %>
                         </div>
-                        <div class="col" style="visibility: hidden">
+                        <div data-new-post-form-target="textForm" class="col hidden">
+                            <p>
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                            </p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <%= link_to "Select from computer", "", data: { action: "click->new-post-form#selectFile" }, id: "post-select-file-button", class: "btn btn-primary", style: "margin-top: 20px"%>
-                        <%= f.file_field :images, multiple: true, data: { "new-post-form-target": "photoFile", action: "change->new-post-form#preview" }, class: "d-none" %>
                     </div>
                 </div>
               <% end %>

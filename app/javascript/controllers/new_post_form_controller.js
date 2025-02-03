@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="new-post-form"
 export default class extends Controller {
-  static targets = ['preview', 'selectFileButton', 'photoFile', 'nextButton'];
+  static targets = ['preview', 'selectFileButton', 'photoFile', 'nextButton', 'textForm', 'modalSize'];
 
   connect() {
   }
@@ -36,12 +36,15 @@ export default class extends Controller {
 
         reader.readAsDataURL(file); // Read the file as a data URL
         
-        this.nextButtonTarget.style.visibility = 'visible'
+        this.nextButtonTarget.style.display = "block"
       });
     }
   }
 
-  // submitForm() {
-  //   this.element.submit();
-  // }
+  revealForm() {
+    this.nextButtonTarget.style.display = "none"
+    this.modalSizeTarget.classList.add("resize")
+    this.textFormTarget.classList.add("fade-in")
+
+  }
 }

@@ -1,0 +1,53 @@
+.modal {
+    z-index: -1;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+  }
+  
+.modal-open .modal {
+    z-index: 1050;
+}
+
+body .modal-dialog { /* Width */
+    min-width: 500px;
+    max-width: 100%;
+    width: auto !important;
+    display: inline-block;
+    transition: width 0.3s ease-in-out;
+}
+
+.modal-dialog,
+.modal-content {
+    height: 350px;
+}
+
+.resize {
+    animation: expand 1s alternate;
+    width: 800px;
+}
+
+@keyframes expand {
+    0% {
+      width: 500px;  /* Starting width */
+    }
+    100% {
+      width: 800px;  /* Ending width */
+    }
+}
+
+.hidden{
+    display: none;
+}
+
+.fade-in { 
+    animation: fadeIn 2s; 
+    display: block;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    40% { opacity: 0;}
+    100% { opacity: 1; }
+  }
