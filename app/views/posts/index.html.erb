@@ -2,10 +2,51 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-    <p>
-        <%= post.description %>
-    </p>
-    <% post.images.each do |image| %>
-        <%= image_tag(image, style: "object-fit: cover; width: 300px; height: 600px;") %>
-    <% end%>
+<div>
+    <div>
+        <p>
+        <% if post.user.image.attached? %>
+            <%= image_tag(post.user.image, class: "round-img-nav") %>
+            <% else %>
+            <% end %>
+            <%= post.user.username %>
+        </p>
+    </div>
+    
+    <% if post.images.count == 1 %>
+
+        <div>
+            <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
+        </div>
+
+    <% elsif post.images.count > 1 %>
+
+    <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide" style="width: 300px">
+        <div class="carousel-indicators">
+            <% post.images.count.times do |i| %>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
+            <% end %>
+        </div>
+        <div class="carousel-inner">
+            <% post.images.each_with_index do |image, index| %>
+                <div class="carousel-item <%= "active" if index.zero? %>">
+                    <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
+                </div>
+            <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <% end %>
+        <div>
+            <%= post.description %>
+        </div>
+</div>    
 <% end %>

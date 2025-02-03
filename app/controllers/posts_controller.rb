@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
   
   def index
-      @posts = Post.all.limit(10)
+      @posts = Post.all.limit(20).order(created_at: :desc)
+
   end
 
   def new
