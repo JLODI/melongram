@@ -9,10 +9,10 @@
             <%= image_tag(post.user.image, class: "round-img-nav") %>
             <% else %>
             <% end %>
-            <%= post.user.username %>
+            <%= post.user.username %> • <%= time_of_post(post) %>
         </p>
     </div>
-    
+
     <% if post.images.count == 1 %>
 
         <div>
