@@ -53,16 +53,24 @@
           </div>
         </div>
       </div>
-    <% else %>
-      <%= render 'layouts/flash' %>  
-        <%= yield %>
-        <%# footer links %>
-        <%= render 'layouts/footer' %>
-    <% end %>
 
     <!----- Post Modal ----->
 
     <%= render 'layouts/post_modal' %>
+
+    <% else %>
+      <div style="display: flex; justify-content: center; align-items: center" >
+        <div style="">
+          <%= render 'layouts/flash' %>  
+            <%= yield %>
+            
+        </div>
+      </div>
+    <%# footer links %>
+    <%= render 'layouts/footer' %>
+    <% end %>
+
+    
 
   </body>
 </html>
