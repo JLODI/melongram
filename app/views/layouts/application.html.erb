@@ -62,30 +62,7 @@
 
     <!----- Post Modal ----->
 
-    <div class="modal fade" id="newpostModal" tabindex="-1" aria-labelledby="newpostmodalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header justify-content-center">
-            <p class="modal-title fs-6 fw-bold" id="newpostmodalLabel">Create New Post</p>
-          </div>
-          <div class="pt-4 modal-body d-flex justify-content-center align-items-center">
-            <div style="margin-left: auto; margin-right: auto; text-align: center;">
-              <%= image_tag "icons/image-gallery.png", width: "70", class: "mb-2" %>
-              
-              <%= form_with model: Post.new, html: { multipart: true }, data: { controller: "new-post-form"} do |f| %>
-                <div class="mb-6">
-                  <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="20">
-                      <p class="fs-5">Drag photos here</p>
-                      <%= link_to "Select from computer", "", data: { action: "click->new-post-form#selectFile" }, id: "post-select-file-button", class: "btn btn-primary"%>
-                      <%= f.file_field :images, direct_upload: true, multiple: true, data: { "new-post-form-target": "photoFile", action: "change->new-post-form#submitForm" }, class: "d-none" %>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'layouts/post_modal' %>
 
   </body>
 </html>
