@@ -25,7 +25,7 @@ body .modal-dialog { /* Width */
 
 .resize {
     animation: expand 1s alternate;
-    width: 800px;
+    width: 700px;
 }
 
 @keyframes expand {
@@ -33,7 +33,7 @@ body .modal-dialog { /* Width */
       width: 500px;  /* Starting width */
     }
     100% {
-      width: 800px;  /* Ending width */
+      width: 700px;  /* Ending width */
     }
 }
 

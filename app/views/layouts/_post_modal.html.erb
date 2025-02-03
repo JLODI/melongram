@@ -5,25 +5,41 @@
                 <h3 class="modal-title fs-6 fw-bold" style="margin:0; text-align: center; flex-grow: 1;" id="newpostmodalLabel">Create New Post</h3>
                 <button data-new-post-form-target="nextButton" data-action="click->new-post-form#revealForm" class="btn text-decoration-none nav-link px-0" style="text-align: right; display: none;">Next</button>
           </div>
-          <div class="pt-4 modal-body d-flex justify-content-center align-items-center">
+          <div class="modal-body d-flex justify-content-center align-items-center">
             <div style="margin-left: auto; margin-right: auto; text-align: center;">
               
               
               <%= form_with model: Post.new, html: { multipart: true } do |f| %>
-                <div class="mb-6 container">
+                <div class="container">
                     <div class="row">
-                        <div class="col" style="margin-left: auto; margin-right: auto; text-align: center; gap: 5px; flex-wrap: wrap;">
+                        <div class="col" style="margin-left: auto; margin-right: auto; gap: 5px; flex-wrap: wrap;">
                             <div data-new-post-form-target="preview">
-                                <%= image_tag "icons/image-gallery.png", width: "70", class: "mb-2" %>
+                                <%= image_tag "icons/image-gallery.png", width: "70px", class: "mb-2" %>
                                 <p class="fs-5">Upload photos here</p>
                             </div>
                             <%= link_to "Select from computer", "", data: { action: "click->new-post-form#selectFile" }, id: "post-select-file-button", class: "btn btn-primary", style: "margin-top: 20px"%>
                             <%= f.file_field :images, multiple: true, data: { "new-post-form-target": "photoFile", action: "change->new-post-form#preview" }, class: "d-none" %>
                         </div>
                         <div data-new-post-form-target="textForm" class="col hidden">
-                            <p>
-                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-                            </p>
+                            <div class="user-header" style="text-align: left; vertical-align:top;">
+                                <% if current_user.image.attached? %>
+                                <%= image_tag(current_user.image, class: "round-img-nav") %>
+                                <% else %>
+                                <% end %>
+                                <p style="display: inline-block;"> <%= current_user.username %></p>
+                            </div>
+                            <div class="field">
+                                <%= f.label :description, class: "control-label" %>
+                                <%= f.text_area :description, class: "text_field form-control",size: "30x6" %>
+                            </div>
+                            <div class="error-msg">
+                                <% if Post.new.errors[:description].any? %>
+                                    <p style="color: red">
+                                        <%= Post.new.errors.full_messages_for(:description).join(" , ")%>
+                                    </p>
+                            </div>
+                        <% end %>
+                        <%= f.submit "Submit", class: "btn btn-primary" %>
                         </div>
                     </div>
                 </div>
