@@ -36,7 +36,7 @@ export default class extends Controller {
 
         reader.readAsDataURL(file); // Read the file as a data URL
         
-        this.nextButtonTarget.style.display = "inline"
+        this.nextButtonTarget.style.display = "inline-block"
       });
     }
   }
