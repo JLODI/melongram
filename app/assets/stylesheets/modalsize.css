@@ -57,14 +57,29 @@ body .modal-dialog { /* Width */
   /* styling and animation for making the next button appear */
 
 .slide-in { 
-    position: absolute;
+    position: relative;
     left: -5px;
-    animation: slideIn 5s forwards; 
+    animation: slideIn 1s forwards; 
     display: block;
 }
 
 @keyframes slideIn {
-    0% { left: -100px; opacity: 0; }
-    40% { left: -50px; opacity: 0;}
+    0% { left: -10px; opacity: 0; }
+    40% { left: -5px; opacity: 0;}
     100% { left: 0px; opacity: 1; }
   }
+
+.slide-out { 
+    position: relative;
+    left: 0px;
+    animation: slideOut 1s forwards; 
+    display: hidden;
+}
+
+@keyframes slideOut {
+    0% { left: 0px; opacity: 1; }
+    40% { left: -5px; opacity: 1;}
+    100% { left: -10px; opacity: 0; display: hidden; }
+    
+  }
+

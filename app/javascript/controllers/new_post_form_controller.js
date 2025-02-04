@@ -42,7 +42,7 @@ export default class extends Controller {
   }
 
   revealForm() {
-    this.nextButtonTarget.classList.add("slide-in")
+    this.nextButtonTarget.classList.add("slide-out")
     this.modalSizeTarget.classList.add("resize")
     this.textFormTarget.classList.add("fade-in")
 
