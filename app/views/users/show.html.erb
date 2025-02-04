@@ -13,6 +13,9 @@
                 <%= @user.username %>
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
             </p>
+            <div class="fw-bold">
+                <%= @user.posts.count %> <%="post".pluralize(@user.posts.count) %> 
+            </div>
         <div>
         <div class="row">
             <p class="email">
