@@ -1,3 +1,5 @@
+/* styling and animation for changing the modal size in post modal */
+
 .modal {
     z-index: -1;
     display: flex !important;
@@ -50,4 +52,19 @@ body .modal-dialog { /* Width */
     0% { opacity: 0; }
     40% { opacity: 0;}
     100% { opacity: 1; }
+  }
+
+  /* styling and animation for making the next button appear */
+
+.slide-in { 
+    position: absolute;
+    left: -5px;
+    animation: slideIn 5s forwards; 
+    display: block;
+}
+
+@keyframes slideIn {
+    0% { left: -100px; opacity: 0; }
+    40% { left: -50px; opacity: 0;}
+    100% { left: 0px; opacity: 1; }
   }

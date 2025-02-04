@@ -6,10 +6,10 @@
     
       <div class="modal-content" data-new-post-form-target="modalSize" >
         <div class="modal-header" style="display: flex; justify-content: center; align-items: center; width:100%">
-          <h3 class= "modal-title fs-6 fw-bold">
+          <h3 class= "modal-title fs-6 fw-bold" style="margin:0; text-align: center; flex-grow: 1;">
             <%= title %>
           </h3>
-          <button data-new-post-form-target="nextButton" data-action="click->new-post-form#revealForm" class="btn text-decoration-none nav-link px-0" style="text-align: right; display: none;">Next</button>
+          <button data-new-post-form-target="nextButton" data-action="click->new-post-form#revealForm" class="btn text-decoration-none nav-link px-0 hidden" style="text-align: right;">Next</button>
         </div>
         <div class="modal-body d-flex justify-content-center align-items-center" id="remote_modal_body" >
           <%= yield %>

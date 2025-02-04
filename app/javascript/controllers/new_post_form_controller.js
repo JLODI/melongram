@@ -36,13 +36,13 @@ export default class extends Controller {
 
         reader.readAsDataURL(file); // Read the file as a data URL
         
-        this.nextButtonTarget.style.display = "inline-block"
+        this.nextButtonTarget.classList.add("slide-in")
       });
     }
   }
 
   revealForm() {
-    this.nextButtonTarget.style.display = "none"
+    this.nextButtonTarget.classList.add("slide-in")
     this.modalSizeTarget.classList.add("resize")
     this.textFormTarget.classList.add("fade-in")
 
