@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "modal" do %>
+
+  <div class="modal fade modal-size animation" id="newpostModal" tabindex="-1" data-controller="modal new-post-form" >
+    <button style="position: fixed; top: 10px; right: 10px" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+    
+      <div class="modal-content" data-new-post-form-target="modalSize" >
+        <div class="modal-header" style="display: flex; justify-content: center; align-items: center; width:100%">
+          <div class= "modal-title fs-6 fw-bold">
+            <%= title %>
+          </div>
+          <button data-new-post-form-target="nextButton" data-action="click->new-post-form#revealForm" class="btn text-decoration-none nav-link px-0" style="display: none;">Next</button>
+        </div>
+        <div class="modal-body d-flex justify-content-center align-items-center" id="remote_modal_body" >
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

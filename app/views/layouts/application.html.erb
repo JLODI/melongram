@@ -47,6 +47,13 @@
           </div>
           <div class="col py-3">
             <%= render 'layouts/flash' %>  
+
+          <!----- modal turbo frame ----->
+
+          <div>
+          <%= turbo_frame_tag "modal", target: "_top" %>
+          </div>
+
             <%= yield %>
             <%# footer links %>
             <%= render 'layouts/footer' %>
@@ -54,9 +61,10 @@
         </div>
       </div>
 
+
     <!----- Post Modal ----->
 
-    <%= render 'layouts/post_modal' %>
+    <%# <%= render 'posts/new_post_modal' %>
 
     <% else %>
       <div style="display: flex; justify-content: center; align-items: center" >

@@ -1,24 +1,5 @@
+<%= render 'modal', title: "New Post", fade_in: true do %>
+  <%= render "new_post_form", post: @post %>
+<% end %>
 
-    <h1>Posts#new</h1>
-    <p>Find me in app/views/posts/new.html.erb</p>
-
-    <%= form_with model: @post, html: { multipart: true } do |f| %>
-        <div class="field">
-            <%= f.label :description, class: "control-label" %>
-            <%= f.text_field :description, class: "text_field" %>
-            
-        </div>
-            <div class="mb-6">
-                <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="20">
-
-                    <%= f.file_field :images, direct_upload: true, multiple: true, data: { dropzone_target: "dropzone.input" } %>
-
-                    <div class="dropzone-msg dz-message needsclick">
-                        <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
-                        <span class="dropzone-msg-desc text-sm">2 MB file size maximum. Allowed file types png, jpg, webp.</span>
-                    </div>
-                </div>
-            </div>
-
-            <%= f.submit "Submit", class: "common-btn" %>
-    <% end %>
+    

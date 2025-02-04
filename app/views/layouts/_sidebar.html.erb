@@ -24,7 +24,7 @@
             <span class="nav-link px-0 align-middle">
                 <i class="fs-4 bi bi-plus-square"></i> 
                 <span class="ms-1 d-none d-sm-inline">
-                    <%= link_to "Post", new_post_path, style: "text-decoration: none", data: { bs_toggle: 'modal', bs_target: '#newpostModal' } %>
+                    <%= link_to "Post", new_post_path, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal' } %>
                 </span> 
             </span>
         </li>
