@@ -13,8 +13,8 @@ class Post < ApplicationRecord
     
     images.each do |image| 
       # Check file size
-      if image.blob.byte_size > 1.megabyte
-        errors.add(:images, "#{image.filename} is too large (must be less than 1 mb)")
+      if image.blob.byte_size > 4.megabyte
+        errors.add(:images, "#{image.filename} is too large (must be less than 4 mb)")
       end
   
       # Check file type
