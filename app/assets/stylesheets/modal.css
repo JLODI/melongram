@@ -22,7 +22,7 @@ body .modal-dialog { /* Width */
 
 .modal-dialog,
 .modal-content {
-    height: 350px;
+    height: auto;
 }
 
 .resize {

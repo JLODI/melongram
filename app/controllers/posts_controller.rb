@@ -23,7 +23,6 @@ class PostsController < ApplicationController
   end
 
   def show
-      @photos = post.images
   end
 
   def edit
