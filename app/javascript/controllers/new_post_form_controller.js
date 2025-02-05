@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ['preview', 'selectFileButton', 'photoFile', 'nextButton', 'textForm', 'modalSize'];
 
   connect() {
-  }
+
+  } 
 
   // stops the modal from closing and clicks the file upload button
   selectFile(e) {

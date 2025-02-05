@@ -9,7 +9,7 @@
             <%= image_tag(post.user.image, class: "round-img-nav") %>
             <% else %>
             <% end %>
-            <%= link_to post.user.username, post.user, method: :get, style: "text-decoration:none" %> • <%= link_to time_of_post(post), post, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal' } %>
+            <%= link_to post.user.username, post.user, method: :get, style: "text-decoration:none" %> • <%= link_to time_of_post(post), post, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} %>
         </p>
     </div>
 

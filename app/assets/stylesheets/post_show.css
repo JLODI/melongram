@@ -1,0 +1,10 @@
+/* container */
+.show-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* columns */
+.show-container > * {
+    padding:1rem;
+}
