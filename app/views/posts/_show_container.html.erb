@@ -42,11 +42,23 @@
                 <% if post.user.image.attached? %>
                     <%= image_tag(post.user.image, class: "round-img-nav") %>
                 <% end %>
-                <%= post.user.username %> • <%= time_of_post(post) %>
+                <%= post.user.username %>
             </p>
         </div>
         <div>
-            <%= post.description %>
+            <p class="bold">
+                <% if post.user.image.attached? %>
+                    <%= image_tag(post.user.image, class: "round-img-nav") %>
+                <% end %>
+                <%= post.user.username %>
+                <%= post.description %>
+            </p>
+            
+            
+        </div>
+
+        <div>
+            <p class="fs-6 light"><%= post_date_long(post) %></p>
         </div>
     </div>
 </div>
