@@ -54,6 +54,12 @@ flex: 50%;
     
 }
 
+/* Hides the dropdown arrow */
+
+.dropdown-toggle::after { 
+    content: none; 
+} 
+
 /*
 .like-comment {
 
