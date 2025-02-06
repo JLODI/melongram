@@ -14,7 +14,7 @@
 
 body .modal-dialog { /* Width */
     min-width: 500px;
-    max-width: 100%;
+    max-width: 800px;
     width: auto !important;
     display: inline-block;
     transition: width 0.3s ease-in-out;
@@ -22,7 +22,7 @@ body .modal-dialog { /* Width */
 
 .modal-dialog,
 .modal-content {
-    height: auto;
+    max-height: 600px;
 }
 
 .resize {

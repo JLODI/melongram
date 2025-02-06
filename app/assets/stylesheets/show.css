@@ -1,0 +1,80 @@
+/* 2 column flex boxs */
+
+.show-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+  
+.show-column {
+flex: 50%;
+}
+
+.show-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+  }
+
+.show-header-left {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+
+.show-header-right {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  align-items: flex-start;
+  justify-content: flex-end;
+  order: 0;
+}
+
+.top-right-corner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-content: stretch;
+  }
+
+
+.show-post-comments {
+    overflow-y: scroll;
+    height: 300px;
+    
+}
+
+/*
+.like-comment {
+
+}
+
+.bookmark {
+
+}
+
+.liked-by {
+
+}
+
+.emoji {
+
+}
+
+.comment {
+
+}
+
+.post-button {
+
+} */

@@ -1,72 +1,150 @@
 <div id="show" class="show-container">
-    <div>
 
-        <% if post.images.count == 1 %>
+    <div class="show-row">
 
-            <div>
-                <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
-            </div>
+        <div class="show-column">
 
-        <% elsif post.images.count > 1 %>
+            <% if post.images.count == 1 %>
 
-            <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide" style="width: 300px">
-                <div class="carousel-indicators">
-                    <% post.images.count.times do |i| %>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
-                    <% end %>
+                <div>
+                    <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
                 </div>
-                <div class="carousel-inner">
-                    <% post.images.each_with_index do |image, index| %>
-                        <div class="carousel-item <%= "active" if index.zero? %>">
-                            <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
-                        </div>
-                    <% end %>
+
+            <% elsif post.images.count > 1 %>
+
+                <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide" style="width: 300px">
+                    <div class="carousel-indicators">
+                        <% post.images.count.times do |i| %>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
+                        <% end %>
+                    </div>
+                    <div class="carousel-inner">
+                        <% post.images.each_with_index do |image, index| %>
+                            <div class="carousel-item <%= "active" if index.zero? %>">
+                                <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
 
-        <% end %>
+            <% end %>
 
-    </div>
+        </div>
 
-    <div>
-        <div>
+
+        <div class="show-column">
+            
+        <div class="show-row">
+            <div class="show-header-left">
             <p>
+                <!----- User Profile Pic & username ------>
                 <% if post.user.image.attached? %>
                     <%= image_tag(post.user.image, class: "round-img-nav") %>
                 <% end %>
                 <%= post.user.username %>
             </p>
+            </div>
+
+
+            <div class="show-header-right">
+                <div class="top-right-corner">
+                    <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">
+                        <i class="bi bi-three-dots"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div>
-            <p class="bold">
-                <% if post.user.image.attached? %>
-                    <%= image_tag(post.user.image, class: "round-img-nav") %>
-                <% end %>
-                <%= post.user.username %>
-                <%= post.description %>
-            </p>
-            
+
+            <div class="show-row">
+                <div class="show-post-comments">
+                    <!----- User Pfp username & description ------>
+                    <div class="show-row">
+                        <div class="show-column">
+                            <p class="bold">
+                                <% if post.user.image.attached? %>
+                                    <%= image_tag(post.user.image, class: "round-img-nav") %>
+                                <% end %>
+                                <%= post.user.username %>
+                                <%= post.description %>
+                        </p>
+                        </div>
+                    </div>
+
+                    <!----- Comments ------>
+                    <div class="">
+                        <div class="">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!----- Like, Comment, Share & Bookmark icons ------>
+            <div class="show-row">
+                <div class="show-column">
+                <h3>
+                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-chat"></i>
+                    <i class="bi bi-send"></i>
+                </h3>
+
+
+                </div>
+                <div class="show-column">
+                <h3>
+                    <i class="bi bi-bookmark"></i>
+                </h3>
+                </div>
+
+            </div>
+
+
+            <!----- Liked by & Date ------>
+            <div class="show-row">
+                <div class="show-column">
+                    <p> Liked by "etcetcetcetc" </p>
+                    <%= post_date_long(post) %>
+                </div>
+            </div>
+
+            <!----- Emoji button, comment field and post button------>
+            <div class="show-row">
+
+                <div class="show-column">
+                    <button class="btn btn-light"><i class="bi bi-emoji-smile"></i></button>
+                </div>
+                <div class="show-column">
+                    <form>
+                        <label for="comment"></label><br>
+                        <input class="form-control" type="text" id="comment" name="comment" placeholder="Type a comment..."><br>
+                    </form>
+                </div>
+                <div class="show-column">
+                   <button class="btn btn-light">Post</button>
+                </div>
+            </div>
             
         </div>
 
-        <div>
-            <p class="fs-6 light"><%= post_date_long(post) %></p>
-        </div>
     </div>
-</div>
 
 <!----- Hides the header ------>
 
-<script type='text/javascript'>
-    document.querySelectorAll('.modal-header').forEach(function(element) {
-        element.classList.add("hidden")
-    });
-</script>
+    <script type='text/javascript'>
+        document.querySelectorAll('.modal-header').forEach(function(element) {
+            element.classList.add("hidden")
+        });
+    </script>
+</div>
