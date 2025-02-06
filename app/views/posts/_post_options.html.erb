@@ -1,0 +1,16 @@
+<div class="show-header-right">
+    <div class="top-right-corner">
+        <div class="dropdown">
+            <a id="dropdownMenu2" class=" link-offset-2 link-underline link-underline-opacity-0 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-three-dots"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <% if current_user.id === post.user.id%>
+                <li><button class="dropdown-item" type="button">Delete</button></li>
+                <li><button class="dropdown-item" type="button">Edit</button></li>
+            <% end %>
+                <li><button class="dropdown-item" type="button">Copy Link</button></li>
+            </ul>
+        </div>
+    </div>
+</div>

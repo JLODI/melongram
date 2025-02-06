@@ -56,23 +56,10 @@
                     </div>
 
                     <!----- Dropdown Options menu ----->
-                    <div class="show-header-right">
-                        <div class="top-right-corner">
-                            <div class="dropdown">
-                                <a id="dropdownMenu2" class=" link-offset-2 link-underline link-underline-opacity-0 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="bi bi-three-dots"></i>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li><button class="dropdown-item" type="button">Action</button></li>
-                                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                <%= render 'post_options', post: post %>
+
             </div>
+        </div>
 
             <div class="show-row">
                 <div class="show-post-comments">
