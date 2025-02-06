@@ -1,0 +1,21 @@
+<div data-controller="options" data-action="click->options#backdropClose">
+  <dialog data-dialog-target="options">
+
+    <!---- Modal Content ------>
+
+    <div class="option-menu">
+        <div class="option-item"></div>
+        Option
+        <div class="option-item"></div>
+        Option
+        <div class="option-item"></div>
+        Option
+        <div class="option-item"></div>
+        Option
+    </div>
+
+    <button type="button" data-action="options#close" autofocus>Cancel</button>
+  </dialog>
+
+  <button type="button" data-action="options#open">Open modal</button>
+</div>

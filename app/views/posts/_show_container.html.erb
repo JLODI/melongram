@@ -42,26 +42,29 @@
 
         <div class="show-column">
             
-        <div class="show-row">
-            <div class="show-header-left">
-            <p>
-                <!----- User Profile Pic & username ------>
-                <% if post.user.image.attached? %>
-                    <%= image_tag(post.user.image, class: "round-img-nav") %>
-                <% end %>
-                <%= post.user.username %>
-            </p>
-            </div>
+            <div class="show-row">
+
+                <div class="show-header">
+                    <div class="show-header-left">
+                        <p>
+                            <!----- User Profile Pic & username ------>
+                            <% if post.user.image.attached? %>
+                                <%= image_tag(post.user.image, class: "round-img-nav") %>
+                            <% end %>
+                            <%= post.user.username %>
+                        </p>
+                    </div>
 
 
-            <div class="show-header-right">
-                <div class="top-right-corner">
-                    <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">
-                        <i class="bi bi-three-dots"></i>
-                    </a>
+                    <div class="show-header-right">
+                        <div class="top-right-corner">
+                            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">
+                                <i class="bi bi-three-dots"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
             <div class="show-row">
                 <div class="show-post-comments">

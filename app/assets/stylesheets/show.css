@@ -15,7 +15,7 @@ flex: 50%;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
-
+    width: 100%;
   }
 
 .show-header-left {
