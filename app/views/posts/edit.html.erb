@@ -1,0 +1,3 @@
+<%= render 'modal', title: "#{@post.user.username} post", fade_in: true do %>
+  <%= render "edit_container", post: @post %>
+<% end %>
