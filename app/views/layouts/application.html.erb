@@ -46,7 +46,8 @@
             <%= render 'layouts/sidebar' %>  
           </div>
           <div class="col py-3">
-            <%= render 'layouts/flash' %>  
+            <%= render 'layouts/flash' %>
+            <div id="stimulus-flash" class="notification-bottom" style=""></div>    
 
           <!----- modal turbo frame ----->
 
@@ -64,7 +65,8 @@
     <% else %>
       <div style="display: flex; justify-content: center; align-items: center" >
         <div style="">
-          <%= render 'layouts/flash' %>  
+          <%= render 'layouts/flash' %>
+          <div id="stimulus-flash" class="notification-bottom" style="display:none"></div>  
             <%= yield %>
             
         </div>

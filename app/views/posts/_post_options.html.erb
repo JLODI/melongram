@@ -9,7 +9,8 @@
                 <li><button class="dropdown-item" type="button">Delete</button></li>
                 <li><button class="dropdown-item" type="button">Edit</button></li>
             <% end %>
-                <li><button class="dropdown-item" type="button">Copy Link</button></li>
+            <div data-controller="url-grabber">
+                <li><button class="dropdown-item" type="button" data-post-url="<%= post_url(post) %>" data-url-grabber-target="url" data-action="click->url-grabber#copyLink"> Copy Link</button></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,26 @@
+/*stimulus flash*/
+
+.notification-bottom {
+    position: fixed;
+    width: 100%;
+    bottom: -30px;
+    left: 0;
+    height: 30px;
+    background-color: white;
+    text-align: center;
+    
+  }
+
+  .slide-in-out { 
+    position: fixed;
+    animation: slideInOut 3s ease-in-out forwards;
+}
+
+@keyframes slideInOut {
+    0% { bottom: -30px; opacity: 0; }
+    25% { bottom: -10px; opacity: 1; }
+    50% { bottom: 0px; opacity: 1; }
+    75% { bottom: -10px; opacity: 1; }
+    100% { bottom: -30px; opacity: 0; }
+  }
+
