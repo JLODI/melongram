@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit]
+  before_action :set_post, only: [:show, :edit, :update]
   
   def index
       @posts = Post.all.limit(20).order(created_at: :desc)
@@ -29,6 +29,17 @@ class PostsController < ApplicationController
 
   end
 
+  def update
+    if @post.update(edit_post_params)
+        flash.now[:notice] = "Your post has been updated!"
+        redirect_to post_path(params[:id])
+    else
+        flash.now[:error] = @post.errors.full_messages.join ('<br/>')
+        render :edit, status: :unprocessable_entity
+    end
+
+  end
+
   def destroy
       @post.destroy
       redirect_to posts_path
@@ -48,4 +59,9 @@ class PostsController < ApplicationController
   def post_params
       params.require(:post).permit(:description, images: [])
   end
+
+  def edit_post_params
+    params.require(:post).permit(:description)
+  end
+
 end

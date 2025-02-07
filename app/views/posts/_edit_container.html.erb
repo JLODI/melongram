@@ -1,6 +1,104 @@
-<h1> hello this is the edit container</h1>
+
+<div id="show" class="show-container">
+
+    <div class="show-row">
+
+        <div class="show-column">
+
+            <% if post.images.count == 1 %>
+
+                <div>
+                    <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
+                </div>
+
+            <% elsif post.images.count > 1 %>
+
+                <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide" style="width: 300px">
+                    <div class="carousel-indicators">
+                        <% post.images.count.times do |i| %>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
+                        <% end %>
+                    </div>
+                    <div class="carousel-inner">
+                        <% post.images.each_with_index do |image, index| %>
+                            <div class="carousel-item <%= "active" if index.zero? %>">
+                                <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            <% end %>
+
+        </div>
 
 
-HELLO this is the post of <%= @post.user.username%>
-and here is their picture:
-<%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
+        <div class="show-column">
+            
+            <div class="show-row">
+
+                <div class="show-header">
+                    <div class="show-header-left">
+                        <p>
+                            <!----- User Profile Pic & username ------>
+                            <% if post.user.image.attached? %>
+                                <%= image_tag(post.user.image, class: "round-img-nav") %>
+                            <% end %>
+                            <%= post.user.username %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="show-row">
+                <div class="show column">
+                    <!----- Post Description Edit ------>
+
+                    <div class="show-row">
+                        <%= form_with model: @post, html: { multipart: true } do |f| %>
+
+                            <!--- Holding Photos--->
+
+                            <%= f.file_field :images, multiple: true, class: "d-none" %>
+
+                            <div class="field">
+                                <%= f.text_area :description, class: "text_field form-control", size: "25x6", data: { "new-edit-form-target": "editForm", action: "input->edit-form#revealDoneButton" } %>
+                            </div>
+                            <div class="error-msg">
+                                <% if @post.errors[:description].any? %>
+                                    <p style="color: red">
+                                        <%= @post.errors.full_messages_for(:description).join(" , ")%>
+                                    </p>
+                            </div>
+                            <% end %>
+                            <%= f.submit "Submit", id: "edit-form-submit" ,class: "btn btn-primary d-none" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>            
+            
+        </div>
+
+                    <!----- Emoji button & character count ------>
+            <div class="show-row">
+                <div class="show-column">
+                    <button class="btn btn-light"><i class="bi bi-emoji-smile"></i></button>
+                </div>
+                <div class="show-column">
+                character count
+                </div>
+
+            </div>
+
+
+    </div>
+
+</div>

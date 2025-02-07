@@ -11,6 +11,7 @@ export default class extends Controller {
     this.modal.show();
     this.element.addEventListener("hidden.bs.modal", (event) => {
       this.element.remove();
+      console.log(this.element)
     });
   }
 }
