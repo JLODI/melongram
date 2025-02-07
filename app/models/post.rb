@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many_attached :images, dependent: :destroy
 
-  validates :description, presence: true, length: { minimum: 5, maximum: 1000 }
+  validates :description, presence: true, length: { minimum: 5, maximum: 2200 }
   validates :images, presence: true
   validate :acceptable_image
 
