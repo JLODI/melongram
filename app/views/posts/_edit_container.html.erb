@@ -65,12 +65,8 @@
                     <div class="show-row">
                         <%= form_with model: @post, html: { multipart: true } do |f| %>
 
-                            <!--- Holding Photos--->
-
-                            <%= f.file_field :images, multiple: true, class: "d-none" %>
-
                             <div class="field">
-                                <%= f.text_area :description, class: "text_field form-control", size: "25x6", data: { "new-edit-form-target": "editForm", action: "input->edit-form#revealDoneButton" } %>
+                                <%= f.text_area :description, id: "textarea", maxlength: 2200, class: "text_field form-control", size: "25x6", data: { "edit-form-target": "text", action: "input->edit-form#revealDoneButton" } %>
                             </div>
                             <div class="error-msg">
                                 <% if @post.errors[:description].any? %>
@@ -93,7 +89,10 @@
                     <button class="btn btn-light"><i class="bi bi-emoji-smile"></i></button>
                 </div>
                 <div class="show-column">
-                character count
+                    <div id="character-count">
+                        <span id="count" data-edit-form-target="charCount"></span>
+                        <span id="maximum">/ 2200</span>
+                    </div>
                 </div>
 
             </div>

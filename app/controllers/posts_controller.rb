@@ -26,15 +26,15 @@ class PostsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @post.update(edit_post_params)
-        flash.now[:notice] = "Your post has been updated!"
-        redirect_to post_path(params[:id])
+        flash[:notice] = "Your post has been updated!"
+        redirect_to root_path
     else
-        flash.now[:error] = @post.errors.full_messages.join ('<br/>')
+        flash[:error] = @post.errors.full_messages.join ('<br/>')
+        redirect_to root_path
         render :edit, status: :unprocessable_entity
     end
 

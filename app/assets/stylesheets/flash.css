@@ -8,6 +8,7 @@
     height: 30px;
     background-color: white;
     text-align: center;
+    z-index: 9999;
     
   }
 
