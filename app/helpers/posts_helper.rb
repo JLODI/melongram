@@ -54,6 +54,14 @@ module PostsHelper
         end
     end
 
+    def post_edited(post)
+        if post.updated_at == post.created_at
+            return " • edited"
+        end
+    end
+    
+
+
     def post_date_long(post)
         secs = (Time.now.to_i - post.created_at.to_i) 
         if secs <= 60 # minute
