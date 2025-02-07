@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   def index
       @posts = Post.all.limit(20).order(created_at: :desc)
@@ -41,10 +41,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-      @post.destroy
-      redirect_to posts_path
-      flash.now[:notice] = "Your post has been deleted"
-
+    @post.destroy    
+        if @post.destroy
+            flash[:notice] = "Your post has been deleted."
+            redirect_to root_path
+        else
+            flash.now[:error] = @post.errors.full_messages.join ('<br/>')
+            render :destroy, status: :unprocessable_entity
+        end
   end
 
   private

@@ -6,7 +6,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <% if current_user.id === post.user.id%>
-                <li><button class="dropdown-item" type="button">Delete</button></li>
+                <li><%= link_to "Delete Post", post_path(post.id), data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_method: :delete }, class: "dropdown-item", style: "text-decoration: none", type: "button" %></li>
                 <li> <%= link_to "Edit Post", edit_post_path(post), class: "dropdown-item", style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} %></li>
             <% end %>
             <div data-controller="url-grabber">
