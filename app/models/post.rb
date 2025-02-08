@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   validates :images, presence: true
   validate :acceptable_image
 
+  has_many :likes, as: :likeable
+
   def acceptable_image
     return unless images.attached?
 
