@@ -18,6 +18,27 @@ flex: 50%;
     width: 100%;
   }
 
+.post-index-container {
+    width: 325px;
+}
+
+.index-row {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%
+}
+
+.index-column-spaced {
+    display: block inline;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
 .show-header-left {
     display: block;
     flex-grow: 0;

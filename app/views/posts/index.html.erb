@@ -2,51 +2,76 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% @posts.each do |post| %>
-<div>
-    <div>
-        <p>
-        <% if post.user.image.attached? %>
-            <%= image_tag(post.user.image, class: "round-img-nav") %>
-            <% else %>
-            <% end %>
-            <%= link_to post.user.username, post.user, method: :get, style: "text-decoration:none" %> • <%= link_to post_date_short(post), post, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} %>
-        </p>
-    </div>
+    <div class="post-index-container row">
+        <div class="column">
+            <div class="row">
+                <p>
+                    <% if post.user.image.attached? %>
+                        <%= image_tag(post.user.image, class: "round-img-nav") %>
+                    <% end %>
+                    <%= link_to post.user.username, post.user, method: :get, style: "text-decoration:none" %> • <%= link_to post_date_short(post), post, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} %>
+                </p>
+            </div>
 
-    <% if post.images.count == 1 %>
+            <div class="row">
+                <% if post.images.count == 1 %>
 
-        <div>
-            <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
-        </div>
+                    <div>
+                        <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
+                    </div>
 
-    <% elsif post.images.count > 1 %>
+                <% elsif post.images.count > 1 %>
 
-    <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide" style="width: 300px">
-        <div class="carousel-indicators">
-            <% post.images.count.times do |i| %>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
-            <% end %>
-        </div>
-        <div class="carousel-inner">
-            <% post.images.each_with_index do |image, index| %>
-                <div class="carousel-item <%= "active" if index.zero? %>">
-                    <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
+                    <div id="carouselExampleIndicators<%= post.id %>" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <% post.images.count.times do |i| %>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" class="<%= "active" if i.zero? %>" aria-current="true" aria-label="Slide <%= i %>"></button>
+                            <% end %>
+                        </div>
+                        <div class="carousel-inner">
+                            <% post.images.each_with_index do |image, index| %>
+                                <div class="carousel-item <%= "active" if index.zero? %>">
+                                    <%= image_tag(image, class: "d-block w-100", alt: "#{index.ordinalize} image", style:"width: 300px; height: 300px; object-fit: cover;") %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                <% end %>
+            </div>
+
+            <!----- Likes, Comment, Share & Bookmark buttons ----->
+            <div class="index-row">
+                <div class="index-column-spaced">
+                    <h3>
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-chat"></i>
+                        <i class="bi bi-send"></i>
+                    </h3>
                 </div>
-            <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators_<%= post.id %>" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= post.id %>" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+                <div class="index-column-spaced">
+                    <h3>
+                        <i class="bi bi-bookmark"></i>
+                    </h3>
+                </div>
+            </div>
 
-    <% end %>
-        <div>
-            <%= post.description %>
+            <div class="row">
+                <p class="fs-5">
+                XXX Likes
+                </p>
+            </div>
+
+            <div class="row">
+                <p class="fs-6"><%= post.user.username %> <%= post.description %></p>
+            </div>   
         </div>
-</div>    
+    </div>    
 <% end %>

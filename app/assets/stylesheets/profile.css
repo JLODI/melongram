@@ -19,8 +19,8 @@
 .post-image-box {
     position: relative;
       width: 100%;
-      max-width: 300px;  /* You can set your desired max width */
-      max-height: 300px;  /* Set the height of the image */
+      max-width: 335px;  /* You can set your desired max width */
+      max-height: 325px;  /* Set the height of the image */
       height: auto;
       margin: 5px;
   }
