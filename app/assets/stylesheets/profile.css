@@ -13,3 +13,61 @@
     height: 152px; 
     object-fit: cover;
 }
+
+/* Likes & Comments count overlay for Profile images */
+
+.post-image-box {
+    position: relative;
+      width: 100%;
+      max-width: 300px;  /* You can set your desired max width */
+      max-height: 300px;  /* Set the height of the image */
+      height: auto;
+      margin: 5px;
+  }
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.overlay-text {
+    position: absolute;
+    display: flex;
+    flex-direction: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    top: 50%;  /* Centers the text vertically */
+    left: 50%; /* Centers the text horizontally */
+    transform: translate(-50%, -50%);  /* Offsets the position for perfect centering */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);  /* Optional: adds shadow for text readability */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+}
+
+.post-image-box:hover .overlay-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Responsive text size */
+  @media (max-width: 768px) {
+    .overlay-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .overlay-text {
+      font-size: 1rem;
+    }
+  }
