@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :posts
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy], shallow: true
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
