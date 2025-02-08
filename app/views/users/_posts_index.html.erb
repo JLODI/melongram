@@ -1,0 +1,7 @@
+<% @user.posts.each do |post| %>
+    <%= link_to post_path(post), style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} do %>
+        <div id="post-image">
+            <%= image_tag(post.images[0], style: "object-fit: cover; width: 300px; height: 300px;") %>
+        </div>  
+    <% end %>  
+<% end %>
