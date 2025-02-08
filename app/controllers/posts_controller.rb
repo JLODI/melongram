@@ -14,15 +14,16 @@ class PostsController < ApplicationController
       @post = current_user.posts.build(post_params)
       if @post.save
           flash[:notice] = "Your post has been created."
-          redirect_to root_path     # post_url(@post)
+          redirect_to root_path
       else
-      
           flash[:alert] = @post.errors.full_messages[0]
           redirect_to root_path
       end
   end
 
   def show
+    @likes = @post.likes.includes(:user)
+    @is_liked = @post.is_liked(current_user)
   end
 
   def edit
