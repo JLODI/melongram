@@ -27,8 +27,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @likes = @post.likes.includes(:user)
-    @is_liked = @post.is_liked(current_user)
   end
 
   def edit
