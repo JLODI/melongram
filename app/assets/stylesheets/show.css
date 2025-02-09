@@ -87,6 +87,19 @@ flex: 50%;
     font-size: 0.875rem;
 }
 
+.button-to-link {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+  
+    -webkit-appearance: none;
+  }
+
 /*
 .like-comment {
 

@@ -8,13 +8,13 @@ class Post < ApplicationRecord
 
   has_many :likes, as: :likeable
 
-  def is_belongs_to? user
-    Post.find_by(user_id: user.id, id: id)
-  end
+  # def is_belongs_to? user
+  #   Post.find_by(user_id: user.id, id: id)
+  # end
   
-  def is_liked user
-    Like.find_by(user_id: user.id, likeable_id: id)
-  end
+  # def is_liked user
+  #   Like.find_by(user_id: user.id, likeable_id: id)
+  # end
 
   def acceptable_image
     return unless images.attached?

@@ -51,6 +51,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_08_100049) do
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
     t.index ["user_id", "likeable_type", "likeable_id"], name: "index_likes_on_user_id_and_likeable_type_and_likeable_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+    
   end
 
   create_table "posts", force: :cascade do |t|

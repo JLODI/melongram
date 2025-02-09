@@ -3,6 +3,11 @@ class PostsController < ApplicationController
   
   def index
       @posts = Post.all.limit(20).order(created_at: :desc)
+      if params[:likeable_type].present?
+        @likeable = params[:likeable_type].constantize.find(params[:likeable_id])
+    else
+        @likeable = nil
+    end
 
   end
 
@@ -67,6 +72,10 @@ class PostsController < ApplicationController
 
   def edit_post_params
     params.require(:post).permit(:description)
+  end
+
+  def like_params
+    params.require(:like).permit(:likeable_id, :likeable_type)
   end
 
 end
