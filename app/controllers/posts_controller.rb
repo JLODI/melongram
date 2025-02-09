@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   end
 
   def show
+      session[:show_modal] = true if params[:show_modal]
   end
 
   def edit

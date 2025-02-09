@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "modal" do %>
 
-  <div class="modal fade modal-size animation" id="newpostModal" tabindex="-1" data-controller="modal new-post-form edit-form" >
+  <div class="modal fade modal-size animation" id="newpostModal" tabindex="-1" data-controller="modal new-post-form edit-form" data-modal-show-modal-value="<%= session[:show_modal] %>" >
     <button style="position: fixed; top: 10px; right: 10px" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
     <div class="modal-dialog modal-dialog-centered modal-lg">
     
