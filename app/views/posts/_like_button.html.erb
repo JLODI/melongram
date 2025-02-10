@@ -20,16 +20,18 @@
                 <i class="bi bi-send"></i>
             </h3>
     </div>
-    <div class="index-column-spaced">
+    <div class="column">
         <h3>
             <i class="bi bi-bookmark"></i>
         </h3>
     </div>
 </div>
 
-<div class="row">
+<div class="column">
     <p class="fs-5">
+    <% if likeable.likes.count > 0 %>
         <%= pluralize(likeable.likes.count, 'like') %>
+    <% end %>
     </p>
 </div>
 

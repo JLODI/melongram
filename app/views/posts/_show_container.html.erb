@@ -94,7 +94,9 @@
 
 
             <!----- Like, Comment, Share & Bookmark icons ------>
-            <div class="show-row">
+            <%= render partial: "posts/like_button", locals: { likeable: post } %>
+
+            <%# <div class="show-row">
                 <div class="show-column">
                 <h3>
                     <i class="bi bi-heart"></i>
@@ -110,13 +112,12 @@
                 </h3>
                 </div>
 
-            </div>
+            </div> %>
 
 
-            <!----- Liked by & Date ------>
+            <!----- Date ------>
             <div class="show-row">
                 <div class="show-column">
-                    <p> Liked by "etcetcetcetc" </p>
                     <%= post_date_long(post) %>
                 </div>
             </div>
