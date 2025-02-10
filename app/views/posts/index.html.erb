@@ -53,6 +53,10 @@
                         
             <div class="row">
                 <p class="fs-6"><%= post.user.username %> <%= post.description %></p>
+            </div>
+
+            <div class="row">
+                <%= render partial: "comments/form", locals: {comment: Comment.new, commentable: post } %>
             </div>   
         </div>
     </div>    

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :users, only: [:show]
-  resources :posts
+  resources :posts do
+    resources :comments, module: :posts
+  end
   resources :likes, only: [:create, :destroy], shallow: true
 
 
