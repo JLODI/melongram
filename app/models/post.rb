@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validate :acceptable_image
 
   has_many :likes, as: :likeable
+  has_many :comments,   as: :commentable
 
   # def is_belongs_to? user
   #   Post.find_by(user_id: user.id, id: id)
