@@ -1,16 +1,36 @@
 <%= turbo_frame_tag dom_id(likeable) do %>
-    <% like = current_user.likes.find_by(likeable: likeable) %>
-    <% if like.nil? %>
-        <%= form_with url: likes_path(like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s}), method: :post, local: true do |form| %>
-            <%= form.button class: "button-to-link" do %>
-                <i class="bi bi-heart"></i>
+<div class="index-row">
+    <div class="index-column-spaced">
+        <h3>
+            <% like = current_user.likes.find_by(likeable: likeable) %>
+            <% if like.nil? %>
+                <%= form_with url: likes_path(like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s}), method: :post, local: true do |form| %>
+                    <%= form.button class: "button-to-link" do %>
+                        <i class="bi bi-heart"></i>
+                    <% end %>
+                <% end %>
+            <% else %>    
+                <%= form_with url: like_path(like), method: :delete, local: true do |form| %>
+                    <%= form.button class: "button-to-link" do%>
+                        <i class="bi bi-heart-fill" style="color: #ff3333"></i>
+                    <% end%>
+                <% end %>
             <% end %>
-        <% end %>
-    <% else %>    
-        <%= form_with url: like_path(like), method: :delete, local: true do |form| %>
-            <%= form.button class: "button-to-link" do%>
-                <i class="bi bi-heart-fill" style="color: #ff3333"></i>
-            <% end%>
-        <% end %>
-    <% end %>
+                <i class="bi bi-chat"></i>
+                <i class="bi bi-send"></i>
+            </h3>
+    </div>
+    <div class="index-column-spaced">
+        <h3>
+            <i class="bi bi-bookmark"></i>
+        </h3>
+    </div>
+</div>
+
+<div class="row">
+    <p class="fs-5">
+        <%= pluralize(likeable.likes.count, 'like') %>
+    </p>
+</div>
+
 <% end %>
