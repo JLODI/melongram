@@ -56,6 +56,10 @@
             </div>
 
             <div class="row">
+                <%= render post.comments %>
+            </div>
+
+            <div class="row">
                 <%= render partial: "comments/form", locals: {comment: Comment.new, commentable: post } %>
             </div>   
         </div>
