@@ -2,11 +2,14 @@
 
 .show-row {
     display: flex;
+    flex-dirction: row;
     flex-wrap: nowrap;
+    justify-content: space-between;
 }
   
 .show-column {
-flex: 50%;
+/* flex: 50%; */
+    width: unset;
 }
 
 .show-header {

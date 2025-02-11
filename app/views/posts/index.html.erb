@@ -56,7 +56,11 @@
             </div>
 
             <div class="row">
-                <%= render post.comments %>
+                <%= turbo_stream_from post, :comments%>
+
+                <%= tag.div id: "#{dom_id(post)}_comments" do %>
+                    <%= render post.comments %>
+                <% end %>
             </div>
 
             <div class="row">

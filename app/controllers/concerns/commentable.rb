@@ -10,7 +10,6 @@ module Commentable
         respond_to do |format|
             if @comment.save
                 comment = Comment.new
-                redirect_to @commentable
                 format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id_for_records(@commentable, comment), partial: "comments/form", locals: { comment: comment, commentable: @commentable } ) }
                 format.html { redirect_to @commentable }
             else
@@ -18,6 +17,9 @@ module Commentable
                 format.html { redirect_to @commentable }
             end
         end
+    end
+
+    def edit
     end
 
     private
