@@ -1,4 +1,5 @@
-<%= form_with model: [commentable, comment], id: dom_id_for_records(commentable, comment) do |form| %>
+<% model = [local_assigns[:commentable], comment].compact %>
+<%= form_with model: model, id: dom_id_for_records(*model) do |form| %>
 
     <% if form.object.errors.any? %>
         <div class="alert alert-danger">
@@ -10,5 +11,5 @@
 
     <%= form.textarea :text %>
     <%= form.submit class: "btn btn-primary" %>
-
+    <%= link_to "Cancel", comment, class: "btn btn-link" if form.object.persisted? %>
 <% end %>
