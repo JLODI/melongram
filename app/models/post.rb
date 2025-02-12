@@ -40,5 +40,6 @@ class Post < ApplicationRecord
   end
 
   def top_level_comments
+    self.comments.where(parent_id: nil)
   end
 end

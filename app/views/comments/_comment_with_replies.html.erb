@@ -1,5 +1,5 @@
 <%= turbo_stream_from comment, :comments %>
-
+<hr>
 <div class="pl-3 border-left" id="<%= dom_id(comment) %>_with_comments" data-controller="comment-reply"%>
     <%= render comment %>
 
@@ -12,4 +12,3 @@
         <%= render partial: "comments/comment_with_replies", collection: comment.comments, as: :comment %>
     </div>
 </div>
-<hr>

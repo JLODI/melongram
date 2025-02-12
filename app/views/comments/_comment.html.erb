@@ -2,7 +2,12 @@
     <%= turbo_frame_tag comment do %>
         <div class="show-column">
             <div class="row">
-                <div class="show-column">
+                <% if comment.parent_id.present? %>
+                    <% reply_comment_class = 'reply-comment' %>
+                <% else %>
+                    <% reply_comment_class = '' %>
+                <% end %>
+                <div class="show-column <%= reply_comment_class %>">
                     <%= comment.user.username %> <%= comment.text %>
                 </div>
                 <div class="show-column">

@@ -103,6 +103,10 @@
     -webkit-appearance: none;
   }
 
+.reply-comment {
+    padding-left: 50px;
+}
+
 /*
 .like-comment {
 
