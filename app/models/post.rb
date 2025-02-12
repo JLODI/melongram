@@ -38,4 +38,7 @@ class Post < ApplicationRecord
       end
     end
   end
+
+  def top_level_comments
+  end
 end

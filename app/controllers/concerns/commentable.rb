@@ -20,7 +20,7 @@ module Commentable
                 }
                 format.html { redirect_to @commentable }
             else
-                format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id_for_records(@parent || @commentable, @comment), partial: "comments/form", locals: { comment: @comment, commentable: @parent || @commentable } ) }
+                format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id_for_records(@parent || @commentable, @comment), partial: "comments/form", locals: { comment: @comment, commentable: @commentable } ) }
                 format.html { redirect_to @commentable }
             end
         end
