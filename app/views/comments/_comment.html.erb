@@ -1,15 +1,14 @@
 <%= turbo_stream_from comment %>
-<%= turbo_frame_tag comment do %>
-    <div class="show-column">
-        <div class="row">
-            <div class="show-column">
-                <%= comment.user.username %> <%= comment.text %>
-            </div>
-            <div class="show-column">
-                <%= link_to "Edit", edit_comment_path(comment), class: "mr-2" %>
-                <%= button_to "Delete", comment_path(comment), method: :delete, data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} %>
+    <%= turbo_frame_tag comment do %>
+        <div class="show-column">
+            <div class="row">
+                <div class="show-column">
+                    <%= comment.user.username %> <%= comment.text %>
+                </div>
+                <div class="show-column">
+                    <%= link_to "Edit", edit_comment_path(comment), class: "mr-2" %>
+                    <%= button_to "Delete", comment_path(comment), method: :delete, data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} %>
+                </div>
             </div>
         </div>
-    </div>
-
 <% end %>
