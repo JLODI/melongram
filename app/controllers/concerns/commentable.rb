@@ -26,9 +26,6 @@ module Commentable
         end
     end
 
-    def edit
-    end
-
     private
 
     def comment_params
