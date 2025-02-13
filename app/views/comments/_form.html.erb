@@ -13,7 +13,13 @@
         </div>
     <% end %>
 
-    <%= form.textarea :text, id: "#{dom_id_for_records(*model)}_text", placeholder: "Add a comment...", class: "text_field form-control" %>
-    <%= form.submit "Post", class: "btn btn-primary" %>
-    <%= link_to "Cancel", comment, class: "btn btn-link" if form.object.persisted? %>
+    <div class="show-row d-flex justify-content-lg-between">
+        <div class="show-column">
+            <%= form.textarea :text, id: "#{dom_id_for_records(*model)}_text", placeholder: "Add a comment...", class: "text_field form-control" %>
+        </div>
+        <div class="show-column">
+            <%= form.submit "Post", class: "btn btn-primary" %>
+            <%= link_to "Cancel", comment, class: "btn btn-link" if form.object.persisted? %>
+        </div>
+    </div>
 <% end %>
