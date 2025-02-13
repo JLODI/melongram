@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def show
       session[:show_modal] = true if params[:show_modal]
+      @view_current_user = current_user
   end
 
   def edit

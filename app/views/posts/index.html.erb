@@ -1,6 +1,3 @@
-<h1>You're at the Posts Index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
 <% @posts.each do |post| %>
     <div class="post-index-container row">
         <div class="column">
@@ -51,9 +48,16 @@
 
             <%= render partial: "posts/like_button", locals: { likeable: post } %>
                         
+            <!----- Post Description ----->
+
             <div class="row">
-                <p class="fs-6"><%= post.user.username %> <%= post.description %></p>
+                <p class="fs-6">
+                    <%= link_to post.user.username, post.user, method: :get, style: "text-decoration:none" %>
+                    <%= post.description %>
+                </p>
             </div>
+
+            <!----- Post comments----->
 
             <% if post.comments.any? %>
                 <div class="row">

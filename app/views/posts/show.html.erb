@@ -1,3 +1,3 @@
-<%= render 'modal', title: "#{@post.user.username} post", fade_in: true do %>
-  <%= render "show_container", post: @post %>
+<%= render 'modal', title: "#{@post.user.username} post", view_current_user: @view_current_user, fade_in: true do %>
+  <%= render "show_container", post: @post, view_current_user: @view_current_user %>
 <% end %>

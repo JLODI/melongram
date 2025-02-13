@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_comment
+    before_action :set_current_user
 
     def update
+        @current_user = current_user
         if @comment.update(comment_params)
             redirect_to @comment
         else
@@ -12,6 +14,7 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment.destroy
+        @current_user = current_user
         respond_to do |format|
             format.turbo_stream {}
             format.html { redirect_to @comment.commentable}
@@ -19,6 +22,10 @@ class CommentsController < ApplicationController
     end
 
     private
+
+    def set_current_user
+        @current_user = current_user
+    end
     
     def set_comment
         @comment = current_user.comments.find(params[:id])

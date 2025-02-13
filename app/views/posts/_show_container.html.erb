@@ -84,8 +84,8 @@
                         <div class="">
                             <%= turbo_stream_from post, :comments%>
                             <%= tag.div id: "#{dom_id(post)}_comments" do %>
-                            <%= render partial: "comments/comment_with_replies", collection: post.top_level_comments, as: :comment %>
-                         <% end %>
+                                <%= render partial: "comments/comment_with_replies", collection: post.top_level_comments, as: :comment, locals: { view_current_user: view_current_user } %>
+                            <% end %>
                         </div>
 
 
@@ -130,13 +130,9 @@
                     <button class="btn btn-light"><i class="bi bi-emoji-smile"></i></button>
                 </div>
                 <div class="show-column">
-                    <form>
-                        <label for="comment"></label><br>
-                        <input class="form-control" type="text" id="comment" name="comment" placeholder="Type a comment..."><br>
-                    </form>
+                    <%= render partial: "comments/form", locals: {comment: Comment.new, commentable: post } %>
                 </div>
                 <div class="show-column">
-                   <button class="btn btn-light">Post</button>
                 </div>
             </div>
             

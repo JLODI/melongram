@@ -68,7 +68,7 @@ module PostsHelper
             return  "now"
         elsif secs <= (60 * 60) # hour
             mins = (secs / 60 )
-            return "#{mins} #{"hour".pluralize(mins)} ago"
+            return "#{mins} #{"minute".pluralize(mins)} ago"
         elsif secs <= (60 * 60 * 24) # day
             hours = (secs / (60 * 60))
             return "#{hours} #{"hour".pluralize(hours)} ago"

@@ -7,21 +7,26 @@
                 <% else %>
                     <% reply_comment_class = '' %>
                 <% end %>
-                <div class="show-column <%= reply_comment_class %>">
-                    <% if comment.user.image.attached? %>
-                        <%= image_tag(comment.user.image, class: "round-img-nav") %>
-                     <% else %>
-                    <% end %>
-                    <%= comment.user.username %> <%= comment.text %>
-                </div>
-                <div class="show-column">
-                    <%= link_to edit_comment_path(comment), class: "button-to-link mr-2" do %>
-                        <i class="bi bi-pencil-square"></i>
-                    <% end %>
-                    <%= button_to comment_path(comment), method: :delete, class: "button-to-link", data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} do %>
-                        <i class="bi bi-trash3"></i>
-                    <% end %>
-                </div>
+                <% if comment.present? %>
+                    <div class="show-column <%= reply_comment_class %>">
+                        <% if comment.user.image.attached? %>
+                            <%= image_tag url_for(comment.user.image), class: "round-img-nav" %>
+                        <% else %>
+                        <% end %>
+                        <%= comment.user.username %> <%= comment.text %>
+                    </div>
+                    <div class="show-column">
+                        <% view_current_user ||= @current_user %>
+                        <% if  view_current_user&.id == comment.user.id%>
+                            <%= link_to edit_comment_path(comment), class: "button-to-link mr-2" do %>
+                                <i class="bi bi-pencil-square"></i>
+                            <% end %>
+                            <%= button_to comment_path(comment), method: :delete, class: "button-to-link", data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} do %>
+                                <i class="bi bi-trash3"></i>
+                            <% end %>
+                        <% end %>
+                    </div>
+                <% end %>
             </div>
         </div>
 <% end %>

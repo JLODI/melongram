@@ -1,7 +1,7 @@
 <%= turbo_stream_from comment, :comments %>
 <hr>
 <div class="pl-3 border-left" id="<%= dom_id(comment) %>_with_comments" data-controller="comment-reply"%>
-    <%= render comment %>
+    <%= render partial: 'comments/comment', locals: { comment: comment, view_current_user: view_current_user } %>
 
     <div class="text-sm">
         <%= link_to "Reply", "#", data: { action: "click->comment-reply#toggleForm" } %>
@@ -9,13 +9,13 @@
 
     <div id="<%= dom_id(comment) %>_comments">
         <%= render partial: "comments/form", locals: { commentable: comment, comment: Comment.new, data: { comment_reply_target: "form"}, class: "d-none"} %>
-        <% if comment.parent_id.nil? && comment.comments.any? %>
+        <% if comment.comments.any? %>
             <div class="text-sm">
                 <%= link_to "Show all #{ pluralize(comment.comments.count, 'reply' )}", "#", data: { comment_reply_target: "link", action: "click->comment-reply#toggleReplies click->comment-reply#changeText"  } %>
             </div>
         <% end %>
             <div data-comment-reply-target="replies", class="d-none">
-                <%= render partial: "comments/comment_with_replies", collection: comment.comments, as: :comment %>
+                <%= render partial: "comments/comment_with_replies", collection: comment.comments, as: :comment, locals: { view_current_user: view_current_user } %>
             </div>
     </div>
 </div>

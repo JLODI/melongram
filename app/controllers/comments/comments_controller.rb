@@ -3,6 +3,7 @@ class Comments::CommentsController < ApplicationController
 
     before_action :authenticate_user!
     before_action :set_commentable
+    before_action :set_current_user
 
     def show
     end
@@ -19,6 +20,7 @@ class Comments::CommentsController < ApplicationController
     end
 
     def destroy
+        @current_user = current_user
         @comment.destroy
         respond_to do |format|
             format.turbo_stream {}
@@ -28,6 +30,10 @@ class Comments::CommentsController < ApplicationController
 
     private
     
+    def set_current_user
+        @current_user = current_user
+    end
+
     def set_commentable
         @parent = Comment.find(params[:comment_id])
         @commentable = @parent.commentable

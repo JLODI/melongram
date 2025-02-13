@@ -28,5 +28,9 @@ module Melongram
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+
+    # config.middleware.use Rack::Session::Cookie, key: '_your_app_session', secret: 'your_secret_key'
+
   end
 end
