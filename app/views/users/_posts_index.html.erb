@@ -1,5 +1,5 @@
 <% @user.posts.in_groups_of(3,false).each do |group| %>
-    <div class="show-row">
+    <div class="index-row">
             <% group.each do |post|%>
             <div class="padding:5px; display: flex; justify-content: center; ">
                 <%= link_to post_path(post), style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} do %>

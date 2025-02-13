@@ -2,7 +2,7 @@
 
 .show-row {
     display: flex;
-    flex-dirction: row;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
@@ -29,14 +29,16 @@
     display: flex;
     flex-direction:row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%
 }
 
+.inline {
+    display: inline-block;
+}
+
 .index-column-spaced {
-    display: block inline;
-    flex-grow: 0;
-    flex-shrink: 1;
+    display: inline-block;
     flex-basis: auto;
     align-self: auto;
     order: 0;
@@ -105,6 +107,13 @@
 
 .reply-comment {
     margin-left: 20px;
+}
+
+.profile-index {
+    display: flex;
+    flex-dirction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 /*

@@ -1,28 +1,32 @@
 <%= turbo_frame_tag dom_id(likeable) do %>
-<div class="index-row">
-    <div class="index-column-spaced">
+<div class="show-row">
+    <div class="column">
+        <div class="inline">
         <h3>
             <% like = current_user.likes.find_by(likeable: likeable) %>
             <% if like.nil? %>
-                <%= form_with url: likes_path(like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s}), method: :post, local: true do |form| %>
-                    <%= form.button class: "button-to-link" do %>
-                        <i class="bi bi-heart"></i>
-                    <% end %>
+                <%= button_to likes_path(like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s}), method: :post, class: "button-to-link inline" do %>
+                    <i class="bi bi-heart"></i>
                 <% end %>
             <% else %>    
-                <%= form_with url: like_path(like), method: :delete, local: true do |form| %>
-                    <%= form.button class: "button-to-link" do%>
-                        <i class="bi bi-heart-fill" style="color: #ff3333"></i>
-                    <% end%>
+                <%= button_to like_path(like), method: :delete, class: "button-to-link inline" do %>
+                    <i class="bi bi-heart-fill" style="color: #ff3333"></i>
                 <% end %>
             <% end %>
-                <i class="bi bi-chat"></i>
-                <i class="bi bi-send"></i>
+                <button type="button" class="btn button-to-link inline" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Coming soon">
+                    <i class="bi bi-chat"></i>
+                </button>
+                <button type="button" class="btn button-to-link inline" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Coming soon">
+                    <i class="bi bi-send"></i>
+                </button>
             </h3>
+        </div>
     </div>
     <div class="column">
         <h3>
-            <i class="bi bi-bookmark"></i>
+            <button type="button" class="btn button-to-link" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Coming soon">
+                <i class="bi bi-bookmark"></i>
+            </button>
         </h3>
     </div>
 </div>
@@ -36,3 +40,5 @@
 </div>
 
 <% end %>
+
+
