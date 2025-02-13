@@ -55,13 +55,11 @@
                 <p class="fs-6"><%= post.user.username %> <%= post.description %></p>
             </div>
 
-            <div class="row">
-                <%= turbo_stream_from post, :comments%>
-
-                <%= tag.div id: "#{dom_id(post)}_comments" do %>
-                    <%= render partial: "comments/comment_with_replies", collection: post.top_level_comments, as: :comment %>
-                <% end %>
-            </div>
+            <% if post.comments.any? %>
+                <div class="row">
+                    <%= link_to "View all #{ pluralize(post.comments.count, 'comment' )}", post, style: "text-decoration: none", method: :get, data: { turbo_frame: 'modal'} %>
+                </div>
+            <% end %>
 
             <div class="row">
                 <%= render partial: "comments/form", locals: {comment: Comment.new, commentable: post } %>
