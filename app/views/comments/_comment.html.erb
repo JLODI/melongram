@@ -8,11 +8,19 @@
                     <% reply_comment_class = '' %>
                 <% end %>
                 <div class="show-column <%= reply_comment_class %>">
+                    <% if comment.user.image.attached? %>
+                        <%= image_tag(comment.user.image, class: "round-img-nav") %>
+                     <% else %>
+                    <% end %>
                     <%= comment.user.username %> <%= comment.text %>
                 </div>
                 <div class="show-column">
-                    <%= link_to "Edit", edit_comment_path(comment), class: "mr-2" %>
-                    <%= button_to "Delete", comment_path(comment), method: :delete, data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} %>
+                    <%= link_to edit_comment_path(comment), class: "button-to-link mr-2" do %>
+                        <i class="bi bi-pencil-square"></i>
+                    <% end %>
+                    <%= button_to comment_path(comment), method: :delete, class: "button-to-link", data: {turbo_confirm: 'You are deleting this post. Are you sure?', turbo_stream: true} do %>
+                        <i class="bi bi-trash3"></i>
+                    <% end %>
                 </div>
             </div>
         </div>

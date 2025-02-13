@@ -14,6 +14,6 @@
     <% end %>
 
     <%= form.textarea :text, id: "#{dom_id_for_records(*model)}_text" %>
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit "Post", class: "btn btn-primary" %>
     <%= link_to "Cancel", comment, class: "btn btn-link" if form.object.persisted? %>
 <% end %>
