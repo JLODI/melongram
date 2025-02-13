@@ -13,7 +13,7 @@
                             <%= image_tag url_for(comment.user.image), class: "round-img-nav" %>
                         <% else %>
                         <% end %>
-                        <%= comment.user.username %> <%= comment.text %>
+                        <%= comment.user.username %> <%= comment.text %><br/>
                         <%= comment_edited(comment) %><%= comment_date_short(comment)%>
                     </div>
                     <div class="show-column">

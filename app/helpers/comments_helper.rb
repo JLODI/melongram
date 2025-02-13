@@ -1,6 +1,6 @@
 module CommentsHelper
     def comment_date_short(comment)
-        secs = (Time.now.to_i - comment.created_at.to_i) 
+        secs = (Time.now.to_i - comment.updated_at.to_i) 
         if secs <= 60 # minute
             return  "now"
         elsif secs <= (60 * 60) # hour
