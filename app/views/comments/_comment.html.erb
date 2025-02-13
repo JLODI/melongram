@@ -14,6 +14,7 @@
                         <% else %>
                         <% end %>
                         <%= comment.user.username %> <%= comment.text %>
+                        <%= comment_edited(comment) %><%= comment_date_short(comment)%>
                     </div>
                     <div class="show-column">
                         <% view_current_user ||= @current_user %>
