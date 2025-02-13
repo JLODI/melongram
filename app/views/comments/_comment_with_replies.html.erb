@@ -4,11 +4,18 @@
     <%= render comment %>
 
     <div class="text-sm">
-        <%= link_to "Reply", "#", data: { action: "click->comment-reply#toggle" } %>
+        <%= link_to "Reply", "#", data: { action: "click->comment-reply#toggleForm" } %>
     </div>
 
     <div id="<%= dom_id(comment) %>_comments">
         <%= render partial: "comments/form", locals: { commentable: comment, comment: Comment.new, data: { comment_reply_target: "form"}, class: "d-none"} %>
-        <%= render partial: "comments/comment_with_replies", collection: comment.comments, as: :comment %>
+        <% if comment.parent_id.nil? && comment.comments.any? %>
+            <div class="text-sm">
+                <%= link_to "Show all #{ pluralize(comment.comments.count, 'reply' )}", "#", data: { comment_reply_target: "link", action: "click->comment-reply#toggleReplies click->comment-reply#changeText"  } %>
+            </div>
+        <% end %>
+            <div data-comment-reply-target="replies", class="d-none">
+                <%= render partial: "comments/comment_with_replies", collection: comment.comments, as: :comment %>
+            </div>
     </div>
 </div>
