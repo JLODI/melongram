@@ -86,6 +86,9 @@ production:
     database: melongram_production
     username: melongram
     password: <%= ENV["MELONGRAM_DATABASE_PASSWORD"] %>
+    url: <%= ENV['DATABASE_URL'] %>  # Use the DATABASE_URL environment variable
+    pool: 5
+    timeout: 5000
   cache:
     <<: *primary_production
     database: melongram_production_cache
