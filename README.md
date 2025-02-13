@@ -1,24 +1,44 @@
-# README
+Ruby on rails Final Project https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is part of the Rails Final Project chapter in The Odin Project’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com”
 
-Things you may want to cover:
+The project is to recreate a social media service, so this is a web application that mimicks Instagram. It is very much a work in progress but currently has this functionality:
 
-* Ruby version
+Users can sign up for an account, fill in their profile, edit their profile and delete their account.
+Must be signed in to access app
+Users can submit a post with up to 20 images and one description
+Users can view posts, edit the description and delete their own posts
+Users can like and comment on posts and reply to comments (nested comments)
+Users can edit and delete their own posts
+Users can view other user profiles and all posts by that user
 
-* System dependencies
+Ruby version 3.35
 
-* Configuration
+Ruby on Rails version 8.0.1
 
-* Database creation
+Postgresql Database 14.15
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dependencies:
+ bootsnap
+  brakeman
+  capybara
+  debug
+  devise (~> 4.9)
+  dotenv-rails (~> 3.1)
+  importmap-rails
+  jbuilder
+  kamal
+  pg (~> 1.1)
+  propshaft
+  puma (>= 5.0)
+  rails (~> 8.0.1)
+  rubocop-rails-omakase
+  selenium-webdriver
+  solid_cable
+  solid_cache
+  solid_queue
+  stimulus-rails
+  thruster
+  turbo-rails
+  tzinfo-data
+  web-console
