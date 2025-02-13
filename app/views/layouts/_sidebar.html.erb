@@ -13,12 +13,20 @@
             </div>
         </li>
         <li>
-            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-compass"></i> <span class="ms-1 d-none d-sm-inline">Explore</span> </a>
+           <span class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-compass"></i>
+                <span class="ms-1 d-none d-sm-inline">
+                    <%= link_to "Explore", pages_explore_path, style: "text-decoration: none", method: :get %>
+                </span>
+            </span>
         </li>
         <li>
-            <a href="#" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-suit-heart"></i> <span class="ms-1 d-none d-sm-inline">Notifications</span></a>
+            <span class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-suit-heart"></i> 
+                <span class="ms-1 d-none d-sm-inline">
+                    <%= link_to "Notifications", pages_notifications_path, style: "text-decoration: none", method: :get %>
+                </span>
+            </span>
         </li>
         <li>
             <span class="nav-link px-0 align-middle">
@@ -46,7 +54,6 @@
             <i class="fs-4 bi bi-list"></i><span class="d-none d-sm-inline mx-1">More</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Switch Appearance</a></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
             <li>
                 <hr class="dropdown-divider">

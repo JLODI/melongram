@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "pages/about"
   get "pages/features"
   get "pages/help"
+  get "pages/notifications"
+  get "pages/explore"
 
   # Home page
   root "posts#index"
